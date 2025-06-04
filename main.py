@@ -1,5 +1,8 @@
 # zed is how able to work with screen short
 
+# https://stackoverflow.com/questions/5588064/how-do-i-make-a-mac-terminal-pop-up-alert-applescript
+# osascript -e 'tell app "System Events" to display dialog "Hello World"'
+
 # pip install google-generativeai=0.8.5 
 
 import os
