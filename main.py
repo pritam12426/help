@@ -34,7 +34,7 @@ genai.configure(api_key=KEY)
 TEMP_DIR = os.getenv("TMPDIR")
 WATCH_DIR = TEMP_DIR + "/cheating"
 LOCAL_SCREEN_SHORT = TEMP_DIR + "/cheating-backup"
-SCREENSHOT_FILE = os.path.join(WATCH_DIR, "screenshot.png")
+SCREENSHOT_FILE = os.path.join(WATCH_DIR, "screenshot.jpg")
 os.makedirs(LOCAL_SCREEN_SHORT, exist_ok=True)
 os.makedirs(WATCH_DIR, exist_ok=True)
 
@@ -85,7 +85,7 @@ def main():
 
     try:
         while True:
-            logging.info(f"📸 Taking screenshot {counter}: screenshot.png")
+            logging.info(f"📸 Taking screenshot {counter}: screenshot.jpg")
 
             if not take_screenshot(SCREENSHOT_FILE):
                 logging.error("❌ Failed to take screenshot.")
@@ -99,7 +99,7 @@ def main():
             if current_hash == last_hash:
                 logging.warning("⚠️ Duplicate image detected. Skipping...")
             else:
-                local_copy = os.path.join(LOCAL_SCREEN_SHORT, f"Q-No-{counter}.png")
+                local_copy = os.path.join(LOCAL_SCREEN_SHORT, f"Q-No-{counter}.jpg")
                 subprocess.run(["cp", "-p", SCREENSHOT_FILE, local_copy])
                 logging.info("🧠 Sending image to Gemini...")
 
